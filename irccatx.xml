@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<irccatx>
+    <ircclient>
+        <server>
+            <host>irc.freenode.net</host>
+            <port>7000</port>
+            <ssl>true</ssl>
+            <password/>
+            <messageDelay>1000</messageDelay>
+        </server>
+        <client>
+            <nick>irccatX</nick>
+        </client>
+    </ircclient>
+
+    <channels>
+        <channel>
+            <name>#irccatx</name>
+            <default>true</default>
+        </channel>
+        <channel>
+            <name>#irccatx-test</name>
+            <password>testpassword</password>
+        </channel>
+    </channels>
+
+    <catserver>
+        <server>
+            <host>127.0.0.1</host>
+            <port>12345</port>
+        </server>
+    </catserver>
+
+    <scripts>
+        <script>
+            <trigger>!sab</trigger>
+            <handler>scripts/sabcmd_admin_commands.sh</handler>
+            <authorization>
+                <hostmasks>
+                    <hostmask>*@gateway/web/freenode/*</hostmask>
+                </hostmasks>
+            </authorization>
+        </script>
+        <script>
+            <trigger>!sab</trigger>
+            <handler>scripts/sabcmd_public_commands.sh</handler>
+            <authorization>
+		<queryAllowed>false</queryAllowed>
+            </authorization>
+        </script>
+    </scripts>
+
+</irccatx>
